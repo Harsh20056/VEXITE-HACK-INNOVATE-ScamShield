@@ -8,7 +8,7 @@ export default function ResultDashboard({ report }) {
   if (!report) return null;
 
   const handleCopySummary = () => {
-    const textToCopy = `ScamShield Enterprise Inspection Report
+    const textToCopy = `ScamShield AI Inspection Report
 Entity: ${report.companyClaimed}
 Verdict: ${report.verdict} (Score: ${report.riskScore}/100)
 Summary: ${report.summary}

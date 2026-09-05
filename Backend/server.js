@@ -18,7 +18,11 @@ connectDB();
 // API Routes
 app.use('/api/verify', verifyRoutes);
 
-// Health Check Endpoint
+// Health Check Endpoints
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'ScamShield AI Backend API is running' });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'ScamShield Backend is running' });
 });

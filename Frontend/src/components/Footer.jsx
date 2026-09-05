@@ -14,7 +14,7 @@ export default function Footer() {
               <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white">
                 <Shield className="w-4 h-4" />
               </div>
-              <span className="text-base font-bold text-slate-900 tracking-tight">ScamShield Enterprise</span>
+              <span className="text-base font-bold text-slate-900 tracking-tight">ScamShield AI</span>
             </div>
 
             <p className="text-slate-500 leading-relaxed max-w-sm">
@@ -68,7 +68,7 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <p>© 2025 ScamShield Enterprise Inc. All rights reserved. Zero-latency identity defense.</p>
+          <p>© 2025 ScamShield AI Inc. All rights reserved. Zero-latency identity defense.</p>
           <div className="flex items-center gap-4">
             <a href="#security" className="hover:text-slate-900">Security Policy</a>
             <a href="#terms" className="hover:text-slate-900">Terms of Service</a>

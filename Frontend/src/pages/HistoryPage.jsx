@@ -355,7 +355,7 @@ export default function HistoryPage() {
             Ledger Integrity
           </div>
           <p className="text-xs text-slate-500 leading-relaxed">
-            All 48 verifications are immutably signed using zero-knowledge hash commitments registered in the ScamShield Enterprise Trust Cluster.
+            All 48 verifications are immutably signed using zero-knowledge hash commitments registered in the ScamShield AI Trust Cluster.
           </p>
           <div className="p-2.5 rounded bg-slate-900 text-slate-200 font-mono text-[10px] break-all">
             root_hash: 0x8f2a4c9b1e70d42fa88390b14c3327d549aef90214

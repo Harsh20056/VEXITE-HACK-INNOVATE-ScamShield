@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { mockAnalyze, saveReportToHistory } from './mockAiService';
 
-const BACKEND_URL = 'http://localhost:5000/api/verify';
+const API_BASE = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const BACKEND_URL = `${API_BASE.replace(/\/$/, '')}/api/verify`;
 
 export const verifyJobOffer = async ({ textContent, file }) => {
   try {
@@ -11,7 +12,7 @@ export const verifyJobOffer = async ({ textContent, file }) => {
 
     const response = await axios.post(BACKEND_URL, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 5000 // 5 sec timeout to fallback smoothly if backend is offline
+      timeout: 30000 // 30 sec timeout for Gemini AI analysis
     });
 
     const data = response.data;

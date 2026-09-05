@@ -26,7 +26,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-1">
             <span className="text-lg font-bold text-slate-900 tracking-tight">ScamShield</span>
-            <span className="text-lg font-bold text-blue-600 tracking-tight">Enterprise</span>
+            <span className="text-lg font-bold text-blue-600 tracking-tight">AI</span>
           </div>
         </Link>
 
