@@ -1,80 +1,79 @@
 import React from 'react';
-import { Shield, Lock, AlertTriangle, ExternalLink, Heart } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-800/80 bg-slate-950/80 text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="mt-20 border-t border-slate-200 bg-white text-slate-600 text-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           
-          {/* Brand Col */}
-          <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                <Shield className="w-5 h-5 text-cyan-400" />
+          {/* Brand Col (Spans 2) */}
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                <Shield className="w-4 h-4" />
               </div>
-              <span className="text-xl font-extrabold text-white tracking-tight">ScamShield <span className="text-cyan-400">AI</span></span>
+              <span className="text-base font-bold text-slate-900 tracking-tight">ScamShield Enterprise</span>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              AI-driven career security platform protecting job seekers, students, and professionals from fraudulent recruitment schemes, Telegram deposit scams, and identity theft.
+
+            <p className="text-slate-500 leading-relaxed max-w-sm">
+              High-assurance identity intelligence, automated fraud detection, and candidate integrity verification for mission-critical workforce platforms.
             </p>
-            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-lg w-fit">
-              <Lock className="w-3.5 h-3.5" /> 100% Privacy Preserved Analysis
+
+            <div className="flex items-center gap-2 pt-1">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> SOC 2 Type II Certified
+              </span>
+              <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700">
+                ISO 27001 Compliant
+              </span>
             </div>
           </div>
 
-          {/* Quick Navigation */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200 mb-4">Navigation</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link to="/" className="hover:text-cyan-400 transition-colors">Home Overview</Link></li>
-              <li><Link to="/scan" className="hover:text-cyan-400 transition-colors">AI Job Scanner</Link></li>
-              <li><Link to="/history" className="hover:text-cyan-400 transition-colors">Past Scan Logs</Link></li>
-              <li><Link to="/guide" className="hover:text-cyan-400 transition-colors">Scam Prevention Guide</Link></li>
+          {/* Platform */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">Platform</h4>
+            <ul className="space-y-2 text-slate-600">
+              <li><Link to="/scan" className="hover:text-blue-600 transition-colors">AI Scanner</Link></li>
+              <li><Link to="/history" className="hover:text-blue-600 transition-colors">Scan History</Link></li>
+              <li><a href="#threats" className="hover:text-blue-600 transition-colors">Threat Intelligence</a></li>
+              <li><a href="#api" className="hover:text-blue-600 transition-colors">API Integration</a></li>
             </ul>
           </div>
 
-          {/* Top Threat Indicators */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200 mb-4">Top Red Flags</h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li className="flex items-center gap-2"><AlertTriangle className="w-3.5 h-3.5 text-rose-400 shrink-0" /> Security Deposit & Equipment Fees</li>
-              <li className="flex items-center gap-2"><AlertTriangle className="w-3.5 h-3.5 text-rose-400 shrink-0" /> Recruiter shifting to Telegram/WhatsApp</li>
-              <li className="flex items-center gap-2"><AlertTriangle className="w-3.5 h-3.5 text-rose-400 shrink-0" /> Spoofed Web Mail Domains (.biz / .xyz)</li>
-              <li className="flex items-center gap-2"><AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Direct hiring without interview rounds</li>
+          {/* Resources */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">Resources</h4>
+            <ul className="space-y-2 text-slate-600">
+              <li><Link to="/guide" className="hover:text-blue-600 transition-colors">Documentation & Guides</Link></li>
+              <li><a href="#whitepaper" className="hover:text-blue-600 transition-colors">Security Whitepaper</a></li>
+              <li><a href="#api-ref" className="hover:text-blue-600 transition-colors">API References</a></li>
+              <li><a href="#lab" className="hover:text-blue-600 transition-colors">Fraud Research Lab</a></li>
             </ul>
           </div>
 
-          {/* Verification Resources */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200 mb-4">Cyber Safety Links</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a href="https://www.ic3.gov" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-                  FBI Internet Crime Center <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a href="https://reportfraud.ftc.gov" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-                  FTC Fraud Reporting Portal <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a href="https://cybercrime.gov.in" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-                  National Cyber Crime Portal <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-              </li>
+          {/* Compliance & Trust */}
+          <div className="space-y-3">
+            <h4 className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">Compliance & Trust</h4>
+            <ul className="space-y-2 text-slate-600">
+              <li><a href="#trust" className="hover:text-blue-600 transition-colors">Trust Center</a></li>
+              <li><a href="#privacy" className="hover:text-blue-600 transition-colors">Privacy Framework</a></li>
+              <li><a href="#dpa" className="hover:text-blue-600 transition-colors">Data Processing Agreement</a></li>
+              <li><a href="#disclosure" className="hover:text-blue-600 transition-colors">Vulnerability Disclosure</a></li>
             </ul>
           </div>
 
         </div>
 
-        <div className="mt-12 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} ScamShield AI. Built for MLH HackDay. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Empowering job seekers everywhere with Google Gemini AI intelligence.
-          </p>
+        {/* Bottom row */}
+        <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+          <p>© 2025 ScamShield Enterprise Inc. All rights reserved. Zero-latency identity defense.</p>
+          <div className="flex items-center gap-4">
+            <a href="#security" className="hover:text-slate-900">Security Policy</a>
+            <a href="#terms" className="hover:text-slate-900">Terms of Service</a>
+            <a href="#privacy-shield" className="hover:text-slate-900">Privacy Shield</a>
+          </div>
         </div>
       </div>
     </footer>

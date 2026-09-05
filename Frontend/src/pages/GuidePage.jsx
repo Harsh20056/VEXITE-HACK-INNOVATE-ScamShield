@@ -1,125 +1,139 @@
 import React from 'react';
-import { BookOpen, ShieldAlert, AlertTriangle, CheckCircle2, Lock, ArrowRight, ExternalLink } from 'lucide-react';
+import { BookOpen, X, Check, ArrowRight, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function GuidePage() {
-  const scamTypes = [
+  const scamCards = [
     {
       id: 1,
-      title: '1. Upfront Security Deposit & Equipment Fee Scam',
-      severity: 'EXTREME RISK',
-      description: 'The scammer claims you are hired and offers to send a laptop or home office kit, but requires you to wire money or buy cryptocurrency as a "refundable security deposit" or "software shipping fee".',
+      title: 'Upfront Security Deposit & Equipment Fee Scam',
+      badge: 'Extreme Risk',
+      badgeClass: 'bg-red-50 text-red-700 border-red-200',
+      description: 'Fraudulent recruiters issue counterfeit cashier\'s checks or direct wire transfers, instructing the candidate to deposit the funds into their personal bank account and immediately remit payment to an "authorized vendor" for home-office workstation hardware or proprietary software licensing. Once the fake check bounces days later, the victim remains legally and financially liable for the lost sum.',
       redFlags: [
-        'Demands payment via UPI, Crypto (Bitcoin/USDT), Zelle, or Gift Cards.',
-        'Claims money will be refunded in your first paycheck.',
-        'Refuses to deduct fees directly from company payroll.'
+        'You are sent an advance check, electronic deposit, or wire to purchase home-office hardware independently.',
+        'You are mandated to use specific unverified third-party procurement vendors, Zelle, CashApp, or cryptocurrency.',
+        'Fabricated extreme urgency requiring hardware purchase orders to be finalized within 24 to 48 hours of offer acceptance.'
       ],
-      defense: 'Legitimate employers NEVER ask candidates to pay for their own onboarding equipment or security deposits.'
+      goldenRule: 'Legitimate employers NEVER ask candidates to purchase home office hardware or pay software licensing fees out-of-pocket, nor do they send advance checks for equipment procurement.'
     },
     {
       id: 2,
-      title: '2. Recruiter Shifting to Informal Messaging (Telegram / WhatsApp)',
-      severity: 'HIGH RISK',
-      description: 'Scammers reach out via LinkedIn or email, then quickly force the interview process onto Telegram or WhatsApp channels to evade corporate audit trails and platform reporting.',
+      title: 'Recruiter Shifting to Informal Messaging',
+      badge: 'High Risk',
+      badgeClass: 'bg-red-50 text-red-700 border-red-200',
+      description: 'Threat actors initiate superficial contact via LinkedIn, job boards, or unsolicited email, then promptly coerce the applicant into unmonitored instant messaging apps such as Telegram, WhatsApp, Signal, or personal Google Chat. This deliberate channel migration circumvents corporate security logging, eliminates platform accountability, and enables effortless deletion of conversation records.',
       redFlags: [
-        'Recruiter uses free webmail handles (@gmail.com, @outlook.com).',
-        'Interview is conducted purely via text chat on Telegram handle (@HR_Global_Tech).',
-        'Refuses to hop on an official video call (Zoom, Google Meet, MS Teams).'
+        'Outreach rapidly insists on moving interview discussions onto Telegram, WhatsApp, or personal encrypted messaging channels.',
+        'Inability or refusal to conduct live face-to-face video interviews through enterprise conferencing software (Zoom, Google Meet, Microsoft Teams).',
+        'Interview conducted entirely via text questionnaires, automated chat scripts, or canned pre-written forms without real-time voice exchange.'
       ],
-      defense: 'Verify recruiter identity on LinkedIn and demand an official corporate email invitation before engaging.'
+      goldenRule: 'Legitimate employers NEVER conduct formal hiring interviews or official onboarding solely via consumer instant messaging apps like Telegram or WhatsApp.'
     },
     {
       id: 3,
-      title: '3. Corporate Domain Spoofing & Phishing',
-      severity: 'HIGH RISK',
-      description: 'Fraudsters register lookalike web domains mimicking mega tech brands (e.g., `amazon-careers-online.biz` or `google-hr-portal.net`) to trick job seekers into submitting identity documents.',
+      title: 'Corporate Domain Spoofing & Phishing',
+      badge: 'High Risk',
+      badgeClass: 'bg-red-50 text-red-700 border-red-200',
+      description: 'Sophisticated syndicates register typosquatted domains (e.g., canonical-careers-portal.net or stripe-talent.com) that visually mimic legitimate enterprise employers. Through these deceptive web addresses and spoofed email headers, attackers send authentic-looking DocuSign envelopes, applicant questionnaires, and onboarding forms engineered to harvest social security numbers, government IDs, and banking information.',
       redFlags: [
-        'Web links use suspicious top-level domains (.biz, .xyz, .top, .online-portal).',
-        'Requests SSN, Passport, or Bank Account numbers before contract signing.',
-        'Domain WHOIS creation date is less than 30 days old.'
+        'Sender email address uses public domains (gmail.com, hotmail.com) or newly registered lookalike domains with extra hyphens or odd suffixes.',
+        'Inbound email fails basic cryptographic sender verification standards (DKIM, SPF alignment, or DMARC authentication).',
+        'Domain WHOIS registration data reveals the domain was created less than 30-60 days ago despite the company being established for decades.'
       ],
-      defense: 'Always navigate directly to the company\'s official verified career portal (e.g. amazon.jobs or careers.google.com).'
+      goldenRule: 'Legitimate employers NEVER send official offer letters or employment agreements from free webmail accounts or unverified lookalike domain variations.'
     },
     {
       id: 4,
-      title: '4. Instant Selection without Formal Interviews',
-      severity: 'MODERATE RISK',
-      description: 'Job seeker receives a high-paying offer letter ($40+/hr or $8,000/mo) within hours of submitting a resume without undergoing technical or HR evaluation.',
+      title: 'Instant Selection without Formal Interviews',
+      badge: 'Moderate Risk',
+      badgeClass: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      description: 'Victims receive unsolicited employment offers or guaranteed job placements without undergoing rigorous multi-stage evaluations, technical assessments, or live discussions with hiring managers. Attackers leverage inflated salary ranges and fully remote flexibility to trigger emotional excitement, blinding applicants to procedural irregularities and accelerating hurried document signing.',
       redFlags: [
-        'Generic offer letter with vague job duties.',
-        'Salary offer is significantly above industry benchmark for zero experience.',
-        'Urgent pressure to sign within 24 hours.'
+        'Job offer extended immediately after submitting a basic resume or completing a simplistic single-page questionnaire.',
+        'Compensation and benefits offered are 30-50% above prevailing industry market benchmarks for the required experience level.',
+        'Job description is extraordinarily vague with no concrete technical requirements, team introductions, or verifiable hiring manager credentials.'
       ],
-      defense: 'Reputable companies follow structured evaluation processes before issuing legal binding job offers.'
+      goldenRule: 'Legitimate employers NEVER extend high-compensation enterprise roles without a thorough, multi-stage assessment and direct live interviews with hiring teams.'
     }
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 space-y-12">
+    <div className="space-y-10 py-8 max-w-5xl mx-auto px-4">
       
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
-          <BookOpen className="w-4 h-4 text-cyan-400" />
-          Scam Awareness Handbook
+      <div className="text-center max-w-3xl mx-auto space-y-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+          <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+          SCAM AWARENESS HANDBOOK
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
           How to Spot Recruitment Fraud
         </h1>
-        <p className="text-slate-400 text-sm sm:text-base font-medium">
-          Learn the anatomy of modern job and internship scams to protect your identity, money, and personal documents.
+        <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          A definitive guide to identifying counterfeit recruiter outreach, fraudulent onboarding checks, lookalike domains, and covert identity harvesting before sharing sensitive information.
         </p>
       </div>
 
-      {/* Scam Cards */}
+      {/* Scam Cards List */}
       <div className="space-y-8">
-        {scamTypes.map((scam) => (
-          <div key={scam.id} className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-4">
+        {scamCards.map((scam) => (
+          <div key={scam.id} className="ent-card p-6 sm:p-8 space-y-5">
             
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-              <h2 className="text-xl font-extrabold text-white">{scam.title}</h2>
-              <span className="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-extrabold w-fit">
-                {scam.severity}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900">{scam.title}</h2>
+              <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${scam.badgeClass} w-fit`}>
+                {scam.badge}
               </span>
             </div>
 
-            <p className="text-sm text-slate-300 leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               {scam.description}
             </p>
 
-            {/* Red Flags List */}
-            <div className="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/15 space-y-2">
-              <p className="text-xs font-extrabold uppercase text-rose-400 flex items-center gap-1.5">
-                <AlertTriangle className="w-4 h-4" /> Red Flags to Watch Out For:
-              </p>
-              <ul className="space-y-1.5 text-xs text-slate-300 list-disc pl-5">
+            {/* Critical Red Flags Box */}
+            <div className="p-4 rounded-xl bg-red-50/70 border border-red-200 space-y-2">
+              <span className="text-xs font-bold text-red-800 flex items-center gap-1.5 uppercase tracking-wider">
+                <X className="w-4 h-4 text-red-600 stroke-[3]" /> Critical Red Flags
+              </span>
+              <ul className="space-y-1.5 text-xs text-red-900">
                 {scam.redFlags.map((flag, idx) => (
-                  <li key={idx}>{flag}</li>
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-red-600 font-extrabold shrink-0">✕</span>
+                    <span>{flag}</span>
+                  </li>
                 ))}
               </ul>
             </div>
 
-            {/* Safety Rule */}
-            <div className="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/15 text-xs font-bold text-emerald-400 flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 shrink-0" />
-              Golden Rule: {scam.defense}
+            {/* The Golden Rule Box */}
+            <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-1">
+              <span className="text-xs font-bold text-emerald-800 flex items-center gap-1.5 uppercase tracking-wider">
+                <Check className="w-4 h-4 text-emerald-600 stroke-[3]" /> THE GOLDEN RULE
+              </span>
+              <p className="text-xs text-emerald-900 font-semibold italic">
+                "{scam.goldenRule}"
+              </p>
             </div>
 
           </div>
         ))}
       </div>
 
-      {/* CTA Box */}
-      <div className="p-8 rounded-3xl bg-gradient-to-r from-cyan-950 via-slate-950 to-blue-950 border border-cyan-500/30 text-center space-y-4">
-        <h3 className="text-2xl font-black text-white">Have a Suspicious Job Offer Right Now?</h3>
-        <p className="text-sm text-slate-300 max-w-xl mx-auto">
-          Run your text message or offer letter PDF through our ScamShield AI analyzer to receive an instant risk score.
-        </p>
+      {/* Bottom CTA Card */}
+      <div className="ent-card p-8 bg-gradient-to-b from-white to-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="space-y-1 text-left">
+          <h3 className="text-lg font-bold text-slate-900">Have a Suspicious Job Offer Right Now?</h3>
+          <p className="text-xs text-slate-600 max-w-lg">
+            Submit recruiter email headers, offer letter PDFs, or interview transcripts into our neural verification scanner to detect cryptographic tampering and check scams in seconds.
+          </p>
+        </div>
+
         <Link
           to="/scan"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold text-sm shadow-lg shadow-cyan-500/25 hover:scale-105 transition-all"
+          className="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition-colors shrink-0 flex items-center gap-1.5"
         >
-          Scan Offer Letter Now <ArrowRight className="w-4 h-4" />
+          Scan Offer Letter Now <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
 

@@ -10,7 +10,7 @@ import GuidePage from './pages/GuidePage';
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-white">
+      <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
         
         {/* Top Navbar */}
         <Navbar />
